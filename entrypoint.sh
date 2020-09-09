@@ -13,7 +13,7 @@ if [ ! -d "$HOME/.config/gcloud" ]; then
       exit 1
    fi
 
-   if [[ -z "${REGION-}"]  && [ -z "${ZONE_NAME-}" ]]; then
+   if [[ -z "${REGION-}" ]  && [ -z "${ZONE_NAME-}" ]]; then
       echo "REGION and/or ZONE_NAME not found. Exiting...."
       exit 1
    fi
