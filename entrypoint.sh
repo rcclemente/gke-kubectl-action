@@ -29,8 +29,8 @@ echo ::add-path::/google-cloud-sdk/bin/gsutil
 
 # Update kubeConfig.
 LOCATION=""
-if [ -z "${REGION-}"]; then LOCATION="$LOCATION --region $REGION"; fi
-if [ -z "${ZONE_NAME-}"]; then LOCATION="$LOCATION --zone $ZONE_NAME"; fi
+if [[ -z "${REGION-}"]]; then LOCATION="$LOCATION --region $REGION"; fi
+if [[ -z "${ZONE_NAME-}"]]; then LOCATION="$LOCATION --zone $ZONE_NAME"; fi
 
 gcloud container clusters get-credentials "$CLUSTER_NAME" --project "$PROJECT_ID" $LOCATION
 
