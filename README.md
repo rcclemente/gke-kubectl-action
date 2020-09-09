@@ -28,6 +28,7 @@ jobs:
         PROJECT_ID: ${{ secrets.PROJECT_ID }}
         APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         CLUSTER_NAME: ${{ secrets.GKE_CLUSTER_NAME }}
+        REGION: us-central1
         ZONE_NAME: us-central1-c
       with:
         args: apply -f packaging/k8s/manifests/ -n prod
@@ -53,8 +54,9 @@ jobs:
         APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         CLUSTER_NAME: ${{ secrets.GKE_CLUSTER_NAME }}
         ZONE_NAME: us-central1-c
+        REGION: us-central1
       with:
-        args: apply -f packaging/k8s/manifests/ -n staging
+        args: rollout restart deployment/console deployment/web-app
 ```
 
 TODO:
